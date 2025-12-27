@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-const DesktopNav = ({menuItems, logo}) => {
+const DesktopNav = ({menuItems, logo, token, onLogout}) => {
   return (
     <div className='h-16 flex justify-between items-center px-6 lg:px-12 '>
       <a href="/">
@@ -18,25 +18,36 @@ const DesktopNav = ({menuItems, logo}) => {
       </ul>
 
       {/* login and sign up button */}
-      <ul className="flex items-center gap-4 font-medium">
-        <li>
-          <Link
-            to="/login"
-            className="text-(--color-secondary) px-4 py-2 rounded"
-          >
-            Log In
-          </Link>
-        </li>
+      {!token && (
+        <ul className="flex items-center gap-4 font-medium">
+          <li>
+            <Link
+              to="/login"
+              className="text-(--color-secondary) px-4 py-2 rounded border"
+            >
+              Log In
+            </Link>
+          </li>
 
-        <li>
-          <Link
-            to="/signup"
-            className="text-secondary px-4 py-2 rounded"
-          >
-            Sign Up
-          </Link>
-        </li>
-      </ul>
+          <li>
+            <Link
+              to="/signup"
+              className="text-(--color-secondary) px-4 py-2 rounded border"
+            >
+              Sign Up
+            </Link>
+          </li>
+        </ul>
+      )}
+
+      {token && (
+        <button
+          onClick={onLogout}
+          className="text-(--color-secondary) px-4 py-2 rounded border"
+        >
+          Logout
+        </button>
+      )}
     </div>
   )
 }

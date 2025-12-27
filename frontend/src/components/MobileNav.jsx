@@ -3,7 +3,7 @@ import { HiBars3BottomRight } from "react-icons/hi2";
 import { RxCross2 } from "react-icons/rx";
 import {Link} from 'react-router-dom'
 
-const MobileNav = ({menuItems, logo, onClose, hideLeft, onOpen}) => {
+const MobileNav = ({menuItems, logo, onClose, hideLeft, onOpen, token, onLogout}) => {
   return (
     <div className='h-16 flex justify-between items-center px-6 lg:px-12'>
         <a href="/">
@@ -30,15 +30,26 @@ const MobileNav = ({menuItems, logo, onClose, hideLeft, onOpen}) => {
               </ul>
 
               {/* login and sign up button */}
-              <ul className='flex items-center gap-4 font-medium mt-10'>
-                <li>
-                  <button className='text-(--color-secondary) px-4 py-2 rounded border'>Log In</button>
-                </li>
-                
-                <li>
-                  <button className='text-secondary px-4 py-2 rounded border'>Sign Up</button>
-                </li>
-              </ul>
+              {!token && (
+                <ul className='flex items-center gap-4 font-medium mt-10'>
+                  <li>
+                    <button className='text-(--color-secondary) px-4 py-2 rounded border'>Log In</button>
+                  </li>
+                  
+                  <li>
+                    <button className='text-(--color-secondary) px-4 py-2 rounded border'>Sign Up</button>
+                  </li>
+                </ul>
+              )}
+
+              {token && (
+                <button
+                  onClick={onLogout}
+                  className="text-(--color-secondary) px-4 py-2 rounded border"
+                >
+                  Logout
+                </button>
+              )}
             </div>
         </div>
     </div>
