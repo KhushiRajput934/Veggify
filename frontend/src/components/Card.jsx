@@ -12,7 +12,7 @@ const Card = ({ item, setItems }) => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/deleterecipe/${item._id}`);
+      await axios.delete(`https://veggify-backend.vercel.app/api/deleterecipe/${item._id}`);
       alert("Recipe deleted successfully!");
       if (setItems) {
         setItems(prev => prev.filter(recipe => recipe._id !== item._id));

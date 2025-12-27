@@ -19,7 +19,7 @@ const Signup = () => {
 
   const handleSignup = async () => {
     try {
-      await axios.post("http://localhost:5000/api/auth/signup", formData);
+      await axios.post("https://veggify-backend.vercel.app/api/auth/signup", formData);
       setMessage("Signup successful");
       navigate("/login");
     } catch (error) {

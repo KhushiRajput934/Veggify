@@ -20,7 +20,7 @@ const EditRecipe = () => {
   const fetchRecipe = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/recipes/${id}`
+        `https://veggify-backend.vercel.app/api/recipes/${id}`
       );
         setFormData(res.data);
       } catch (error) {
@@ -42,7 +42,7 @@ const EditRecipe = () => {
   const handleUpdate = async () => {
     try {
       await axios.put(
-        `http://localhost:5000/api/recipes/${id}`,
+        `https://veggify-backend.vercel.app/api/recipes/${id}`,
         formData,
         {
           headers: {

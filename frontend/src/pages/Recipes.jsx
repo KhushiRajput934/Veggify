@@ -9,7 +9,7 @@ const Recipes = () => {
     const getLatestItems = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/all-items"
+          "https://veggify-backend.vercel.app/api/all-items"
         );
         setItems(response.data);
       } catch (error) {

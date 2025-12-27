@@ -26,7 +26,7 @@ const Search = () => {
         const fetchItems = async() => {
             setLoading(true)
             try {
-                const response = await axios.get(`http://localhost:5000/api/items`, {
+                const response = await axios.get(`https://veggify-backend.vercel.app/api/items`, {
                     params :{q: query}
                 })
                 setResults(response.data)

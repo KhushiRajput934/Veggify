@@ -7,7 +7,7 @@ const LatestRecipe = () => {
     const [items, setItems] = useState([])
     useEffect (() => {
         const getLatestItems = async() => {
-            const response = await axios.get('http://localhost:5000/api/all-items')
+            const response = await axios.get('https://veggify-backend.vercel.app/api/all-items')
             setItems(response.data)
         }
         getLatestItems()

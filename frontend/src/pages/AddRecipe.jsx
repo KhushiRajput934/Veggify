@@ -99,7 +99,7 @@ const AddRecipe = () => {
     };
 
     try {
-      await axios.post("http://localhost:5000/api/addrecipe", payload);
+      await axios.post("https://veggify-backend.vercel.app/api/addrecipe", payload);
       setMessage("Recipe added successfully!");
       navigate("/");
     } catch (err) {
