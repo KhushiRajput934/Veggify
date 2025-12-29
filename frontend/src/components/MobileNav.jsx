@@ -13,7 +13,7 @@ const MobileNav = ({menuItems, logo, onClose, hideLeft, onOpen, token, onLogout}
             <HiBars3BottomRight  className='w-7 h-7'/>
         </button>
 
-        <div className={`transition-all w-full h-full fixed bg-(--color-primary) z-50 top-0 ${hideLeft} flex justify-center items-center`}> 
+        <div className={`fixed inset-0 z-50 bg-(--color-primary) flex justify-center items-center transition-all duration-300 ${hideLeft}`}> 
             <button className='absolute right-8 top-32' onClick={onClose}>
                 <RxCross2 className='w-7 h-7' />
             </button>
@@ -23,7 +23,8 @@ const MobileNav = ({menuItems, logo, onClose, hideLeft, onOpen, token, onLogout}
                 {
                   menuItems?.map((menu, index) => (
                     <li key={index}>
-                      <Link to={menu} className='font-medium capitalize text-(--color-secondary) text-2xl' >{menu}</Link>
+                      <Link to={menu} className='font-medium capitalize text-(--color-secondary) text-2xl' 
+                      onClick={onClose}>{menu}</Link>
                     </li>
                   ))
                 }
@@ -44,7 +45,10 @@ const MobileNav = ({menuItems, logo, onClose, hideLeft, onOpen, token, onLogout}
 
               {token && (
                 <button
-                  onClick={onLogout}
+                  onClick={() => {
+                    onLogout();
+                    onClose();
+                  }}
                   className="text-(--color-secondary) px-4 py-2 rounded border"
                 >
                   Logout

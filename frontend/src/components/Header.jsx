@@ -5,17 +5,17 @@ import logo from '../assets/logo.svg'
 import MobileNav from './MobileNav'
 
 const Header = () => {
-    const [hideLeft, setHideLeft] = useState("-left-[1000px")
+    const [hideLeft, setHideLeft] = useState("translate-x-full")
     const menuItems = ['recipes', 'addrecipe']
 
     const token = localStorage.getItem("token")
     const navigate = useNavigate()
 
     const onOpen = () => {
-        setHideLeft('left-0')
+        setHideLeft("translate-x-0")
     }
     const onClose = () => {
-        setHideLeft('left-[1000px]')
+        setHideLeft("translate-x-full")
     }
 
     const handleLogout = () => {
