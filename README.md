@@ -17,7 +17,6 @@ Veggify is a full-stack recipe management application where users can explore re
 ### 📘 Recipe Management
 - View all recipes
 - Add a new recipe
-- Edit existing recipes
 - Delete recipes (Admin / Owner access)
 - Auto refresh after update
 
@@ -76,8 +75,3 @@ Feel free to fork and improve the project.
 
 **Khushi Rajput**  
 Beginner full-stack developer exploring MERN projects.
-
-
-
-## 📂 Folder Structure
-
